@@ -1,0 +1,23 @@
+on: [push]
+
+name: Build Docker Image And Submit Metadata To ReARM
+
+jobs:
+  build:
+    name: Build And Push Docker Image With Metadata
+    runs-on: ubuntu-latest
+    steps:
+      - name: ReARM Build And Submit Backend Release metadata action
+        uses: relizaio/rearm-docker-action@1.0.0
+        with:
+          registry_username: ${{ secrets.DOCKER_LOGIN }}
+          registry_password: ${{ secrets.DOCKER_TOKEN }}
+          registry_host: registry.relizahub.com
+          image_namespace: registry.relizahub.com/d50bca61-d588-44ee-9dae-c0fbcd376270-public
+          image_name: hello-world
+          rearm_api_id: ${{ secrets.REARM_API_ID }}
+          rearm_api_key: ${{ secrets.REARM_API_KEY }}
+          rearm_api_url: https://demo.rearmhq.com
+          path: .
+          enable_sbom: 'true'
+          source_code_sbom_type: 'none'
