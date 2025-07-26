@@ -13,11 +13,11 @@ jobs:
           registry_username: ${{ secrets.DOCKER_LOGIN }}
           registry_password: ${{ secrets.DOCKER_TOKEN }}
           registry_host: registry.relizahub.com
-          image_namespace: registry.relizahub.com/d50bca61-d588-44ee-9dae-c0fbcd376270-public
+          image_namespace: registry.test.relizahub.com/1ba15cdf-edc1-4c34-abf3-6c886c33ff77-private
           image_name: hello-world
           rearm_api_id: ${{ secrets.REARM_API_ID }}
           rearm_api_key: ${{ secrets.REARM_API_KEY }}
-          rearm_api_url: https://demo.rearmhq.com
+          rearm_api_url: https://dev.rearmhq.com
           path: .
           enable_sbom: 'true'
           source_code_sbom_type: 'none'
